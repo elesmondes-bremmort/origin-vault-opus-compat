@@ -1,0 +1,20 @@
+{
+  "id": "origin-vault-opus-compat",
+  "title": "Origin Vault - Opus Compat",
+  "description": "Corrige le conflit de drag & drop entre Origin Vault et Opus/dScryb en forçant les images Origin Vault à être déposées comme tuiles.",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Bremmort"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "scripts": [
+    "compat.js"
+  ],
+  "manifest": "https://gitlab.com/elesmondes-bremmort/origin-vault-opus-compat/-/raw/main/module.json",
+  "download": "https://gitlab.com/elesmondes-bremmort/origin-vault-opus-compat/-/archive/main/origin-vault-opus-compat-main.zip"
+}
