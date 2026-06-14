@@ -25,16 +25,28 @@
 
       const point = canvas.canvasCoordinatesFromClient(event);
 
+      const dimensions = await getImageDimensions(src);
+      const maxSize = 400;
+
+      const scale = Math.min(
+        maxSize / dimensions.width,
+        maxSize / dimensions.height,
+        1
+      );
+
+      const width = Math.round(dimensions.width * scale);
+      const height = Math.round(dimensions.height * scale);
+
       await TileDocument.create({
         x: point.x,
         y: point.y,
-        width: 400,
-        height: 400,
+        width,
+        height,
         texture: { src }
       }, { parent: canvas.scene });
 
-      console.log(`${MODULE_ID} | Origin Vault image dropped as Tile`, src);
-    }, true);
+            console.log(`${MODULE_ID} | Origin Vault image dropped as Tile`, src);
+          }, true);
   });
 
   function shouldHandleDrop(event) {
@@ -82,4 +94,20 @@
   function isImagePath(src) {
     return /\.(png|jpe?g|webp|gif|avif)$/i.test(src);
   }
+
+  function getImageDimensions(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    img.onload = () => {
+      resolve({
+        width: img.naturalWidth,
+        height: img.naturalHeight
+      });
+    };
+
+    img.onerror = reject;
+    img.src = src;
+  });
+}
 })();
