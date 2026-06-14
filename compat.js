@@ -27,6 +27,7 @@
 
       event.preventDefault();
       event.stopPropagation();
+      event.stopImmediatePropagation();
 
       const point = canvas.canvasCoordinatesFromClient(event);
 

@@ -2,7 +2,7 @@
   "id": "origin-vault-opus-compat",
   "title": "Origin Vault - Opus Compat",
   "description": "Corrige le conflit de drag & drop entre Origin Vault et Opus.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "authors": [
     {
       "name": "Bremmort"
